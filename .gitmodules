@@ -1,0 +1,3 @@
+[submodule "src/app/services/shared"]
+	path = src/app/services/shared
+	url = https://github.com/arodriguezsgithub/repo-github.git

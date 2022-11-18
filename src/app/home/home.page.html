@@ -1,0 +1,55 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      User
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">  
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">
+        User
+      </ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-item>
+    <ion-label>User</ion-label>
+    <ion-input 
+      placeholder="type a user"
+      [(ngModel)]="username" 
+    ></ion-input>
+  </ion-item>
+
+  <ion-button 
+    (click)="getUser()"
+    [disabled]="!username"
+    expand="block">
+    <ion-icon slot="start" name="search"></ion-icon>
+    Search
+  </ion-button>
+
+  <ion-button 
+    (click)="clearUser()"
+    *ngIf="user"
+    expand="block"
+    color="danger">
+    <ion-icon slot="start" name="trash"></ion-icon>
+  </ion-button>
+
+  <ion-card *ngIf="user">
+    <img [src]="user.avatar_url" />
+    <ion-card-header>
+      <ion-card-title>{{ user.login }}</ion-card-title>
+      <ion-card-subtitle>{{ user.url }}</ion-card-subtitle>
+    </ion-card-header>
+  
+    <ion-card-content>
+      Here's a small text description for the card content. Nothing more, nothing less.
+      <p><strong>Creation date: {{ user.created_at | date }}</strong></p>
+    </ion-card-content>
+  </ion-card>
+  
+</ion-content>
